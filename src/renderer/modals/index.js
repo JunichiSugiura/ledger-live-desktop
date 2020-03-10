@@ -1,6 +1,7 @@
 // @flow
 
 import MODAL_DELEGATE from "~/renderer/families/tezos/DelegateFlowModal";
+import MODAL_BUY_CRYPTO from "./BuyCrypto";
 import MODAL_EXPORT_OPERATIONS from "./ExportOperations";
 import MODAL_CONFIRM from "./ConfirmModal";
 import MODAL_MANAGE_TRON from "./ManageTron";
@@ -21,6 +22,7 @@ import MODAL_RELEASE_NOTES from "./ReleaseNotes";
 
 const modals: { [_: string]: React$ComponentType<any> } = {
   MODAL_EXPORT_OPERATIONS,
+  MODAL_BUY_CRYPTO,
   MODAL_CONFIRM,
   MODAL_MANAGE_TRON,
   MODAL_PASSWORD,

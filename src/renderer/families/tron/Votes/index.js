@@ -81,7 +81,6 @@ const Delegation = ({ account, parentAccount }: Props) => {
   const onDelegate = useCallback(
     () =>
       dispatch(
-        /** @TODO replace MODAL_VOTE_TRON_INFO with the right naming if different */
         openModal(votes.length > 0 ? "MODAL_VOTE_TRON" : "MODAL_VOTE_TRON_INFO", {
           parentAccount,
           account,

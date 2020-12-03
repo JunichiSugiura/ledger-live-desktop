@@ -32,7 +32,7 @@ type TooltipProps = {
   data: any,
 };
 
-const Tooltip = ({ tooltip, renderTooltip, color, data }: TooltipProps) => {
+export default function Tooltip({ tooltip, renderTooltip, color, data }: TooltipProps) {
   const wasVisible = useRef(false);
   const theme = useTheme("colors.palette");
   const { x, y } = useSpring({
@@ -40,6 +40,8 @@ const Tooltip = ({ tooltip, renderTooltip, color, data }: TooltipProps) => {
     reset: !wasVisible.current,
   });
   wasVisible.current = !!tooltip.opacity;
+
+  const tooltipData = data?.[tooltip.dataPoints?.[0]?.index];
 
   return (
     <>
@@ -78,11 +80,9 @@ const Tooltip = ({ tooltip, renderTooltip, color, data }: TooltipProps) => {
         }}
       >
         <TooltipContainer opacity={tooltip.opacity} theme={theme}>
-          {tooltip.dataPoints ? renderTooltip(data[tooltip.dataPoints[0].index]) : null}
+          {tooltipData && renderTooltip(tooltipData)}
         </TooltipContainer>
       </animated.div>
     </>
   );
-};
-
-export default Tooltip;
+}
